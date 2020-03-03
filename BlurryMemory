@@ -1,0 +1,75 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+//public static ArrayList<Integer> ans = new ArrayList<Integer>();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int k = sc.nextInt();
+        int n = sc.nextInt();
+        int ans =0;
+        
+        int[][] pixels = new int[n][n];
+        
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                pixels[i][j] = sc.nextInt();
+            }
+        }
+        for (int z = 0; z<n;z++){
+            for (int y = 0; y<n;y++){
+                int x = pixels[z][y];
+                if (z==0 && y==0){
+                    if (Math.abs(pixels[0][1]-x)<=k && Math.abs(pixels[1][1]-x)<=k && Math.abs(pixels[1][0]-x)<=k)
+                        ans++;
+                }
+                else if (z==n-1 && y==0){
+                    if (Math.abs(pixels[n-2][0]-x)<=k && Math.abs(pixels[n-2][1]-x)<=k && Math.abs(pixels[n-1][1]-x)<=k)
+                        ans++; 
+                    }
+                else if (z==n-1 && y==n-1){
+                    if (Math.abs(pixels[n-2][n-1]-x)<=k && Math.abs(pixels[n-2][n-2]-x)<=k && Math.abs(pixels[n-1][n-2]-x)<=k)
+                        ans++; 
+                    }
+                else if (z==0 && y==n-1){
+                    if (Math.abs(pixels[0][n-2]-x)<=k && Math.abs(pixels[1][n-1]-x)<=k && Math.abs(pixels[1][n-2]-x)<=k)
+                        ans++; 
+                    }
+                else if (z==0){
+                    if (Math.abs(pixels[1][y]-x)<=k && Math.abs(pixels[1][y-1]-x)<=k && Math.abs(pixels[1][y+1]-x)<=k && Math.abs(pixels[0][y-1]-x)<=k && Math.abs(pixels[0][y+1]-x)<=k)
+                        ans++;
+                }
+                else if (z==n-1){
+                    if (Math.abs(pixels[n-2][y]-x)<=k && Math.abs(pixels[n-1][y-1]-x)<=k && Math.abs(pixels[n-1][y+1]-x)<=k && Math.abs(pixels[n-2][y-1]-x)<=k && Math.abs(pixels[n-2][y+1]-x)<=k)
+                        ans++;
+                }
+                else if (y==0){
+                    if (Math.abs(pixels[z][1]-x)<=k && Math.abs(pixels[z-1][1]-x)<=k && Math.abs(pixels[z+1][1]-x)<=k && Math.abs(pixels[z+1][0]-x)<=k && Math.abs(pixels[z-1][0]-x)<=k)
+                        ans++;
+                }
+                else if (y==n-1){
+                    if (Math.abs(pixels[z][n-2]-x)<=k && Math.abs(pixels[z-1][n-2]-x)<=k && Math.abs(pixels[z+1][n-2]-x)<=k && Math.abs(pixels[z+1][n-1]-x)<=k && Math.abs(pixels[z-1][n-1]-x)<=k)
+                        ans++;
+                }
+                else{
+                    if (Math.abs(pixels[z-1][y]-x)<=k && Math.abs(pixels[z-1][y-1]-x)<=k && Math.abs(pixels[z-1][y+1]-x)<=k && Math.abs(pixels[z+1][y]-x)<=k && Math.abs(pixels[z+1][y-1]-x)<=k && Math.abs(pixels[z+1][y+1]-x)<=k && Math.abs(pixels[z][y+1]-x)<=k && Math.abs(pixels[z][y-1]-x)<=k)
+                        ans++;
+                }
+                
+        }
+    }
+        System.out.println(ans);
+
+        
+}
+/*
+    public static boolean contains(int x){
+        for (int y=0; y<ans.size();y++){
+        if (ans.get(y)==x)
+            return true;
+        }
+        return false;
+    }
+    */
+}
