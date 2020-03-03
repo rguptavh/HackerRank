@@ -1,116 +1,43 @@
-
-PRACTICE
-COMPETE
-JOBS
-LEADERBOARD
-Search
-1
-2
- rahul_gupta15 
-All Contests  Pro Com 3  Twenty One
-Twenty One
-by matfah
-Problem
-Submissions
-Discussions
-Submitted 13 days ago • Score: 1.00Status: Accepted
- Test Case #0
- Test Case #1
- Test Case #2
- Test Case #3
- Test Case #4
- Test Case #5
- Test Case #6
-
-Submitted Code
-Language: Java 8
-
- Open in editor
-1
 import java.io.*;
-2
 import java.util.*;
-3
-​
-4
-public class Solution {
-5
-​
-6
-    public static void main(String[] args) {
-7
-    Scanner sc = new Scanner(System.in);
-8
-    int n = sc.nextInt();
-9
-    int p1 =0;
-10
-    int p2 =0;
-11
-    boolean toggle = true;
-12
-    while(n > 0) {
-13
-      int value = sc.nextInt();
-14
-      n--;
-15
-      if (value==0){
-16
-          if (p1==13 && toggle)
-17
-              p1=0;
-18
-          if (p2==13 && !toggle)
-19
-              p2=0;
-20
-          toggle = !toggle;
-21
-      }
-22
-      else{
-23
-          if (toggle)
-24
-              p1+=value;
-25
-          else
-26
-              p2+=value;
-27
-      }  
-28
-      if (p1>21)
-29
-        p1=13;
-30
-      if (p2>21)
-31
-        p2=13;
-32
-      if (p1==21 || p2==21)
-33
-          break;
-34
-    
-35
-    }
-36
-        if (p1==21)
-37
-            System.out.println("FIRST PLAYER");
-38
-        else if (p2==21)
-39
-            System.out.println("SECOND PLAYER");
-40
-        else
-41
-            System.out.println("UNDECIDED");
-42
-    }
-43
-}
-Contest Calendar | Interview Prep | Blog | Scoring | Environment | FAQ | About Us | Support | Careers | Terms Of Service | Privacy Policy | Request a Feature
 
+public class Solution {
+
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int p1 =0;
+    int p2 =0;
+    boolean toggle = true;
+    while(n > 0) {
+      int value = sc.nextInt();
+      n--;
+      if (value==0){
+          if (p1==13 && toggle)
+              p1=0;
+          if (p2==13 && !toggle)
+              p2=0;
+          toggle = !toggle;
+      }
+      else{
+          if (toggle)
+              p1+=value;
+          else
+              p2+=value;
+      }  
+      if (p1>21)
+        p1=13;
+      if (p2>21)
+        p2=13;
+      if (p1==21 || p2==21)
+          break;
+    
+    }
+        if (p1==21)
+            System.out.println("FIRST PLAYER");
+        else if (p2==21)
+            System.out.println("SECOND PLAYER");
+        else
+            System.out.println("UNDECIDED");
+    }
+}
