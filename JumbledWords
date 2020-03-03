@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String message = sc.nextLine();
+        String[] words = message.split(" ");
+        String ans = "";
+        for (int x=0; x<words.length;x++){
+            for (int y=0;y<words[x].length()/2;y++){
+                ans += ""+words[x].charAt(1+2*y) + words[x].charAt(2*y);
+            }
+            if (words[x].length()%2!=0)
+                ans+=words[x].charAt(words[x].length()-1);
+            ans+=" ";
+        }
+        System.out.println(ans);
+    }
+}
