@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.nextLine();
+        String message = sc.nextLine();
+        String ans ="";
+        for (int x=0; x<message.length();x++){
+            char a = message.charAt(x);
+            char b = message.charAt(x);
+                
+                if ((a>=65 && a<=90)){
+                    a=(char)(a+n%26);
+                if ((a>=65 && a<=90))
+                    ans+=a;
+                else
+                    ans+=(char)(65+a-91);
+                }
+                else if ((a>=97 && a<=122)){
+                    a=(char)(a+n%26);
+                if ((a>=97 && a<=122))
+                    ans+=a;
+                else
+                    ans+=(char)(97+a-123);
+                }
+            
+            else
+                ans+=message.charAt(x);
+        }   
+        System.out.println(ans);
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+}
+}
