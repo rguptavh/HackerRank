@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String bin = Integer.toBinaryString(n);
+        int ones =0;
+        int zero =0;
+        for (int x=0;x<bin.length();x++){
+            if (bin.charAt(x)=='1')
+                ones++;
+            else if (bin.charAt(x)=='0')
+                zero++;
+        }
+        if (ones>zero)
+            System.out.println("HAPPY");
+        else if (zero>ones)
+            System.out.println("SAD");
+        else
+            System.out.println("NEUTRAL");
+    }
+}
